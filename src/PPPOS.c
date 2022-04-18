@@ -63,6 +63,7 @@ static void ppp_status_cb(ppp_pcb *pcb, int err_code, void *ctx)
             ESP_LOGE(TAG, "   ipaddr_v6 = %s\n", ip6addr_ntoa(netif_ip6_addr(pppif, 0)));
     #endif /* PPP_IPV6_SUPPORT */
           PPPOS_connected = true;
+            ESP_LOGE(TAG, "   PPPOS_connected = %s\n", PPPOS_connected?"true":"false");
       
         break;
     }

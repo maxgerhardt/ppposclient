@@ -1,5 +1,6 @@
 #include "PPPOSClient.h"
 
+static const char *TAG = "status";
 
 void PPPOSClient::stop()
 {
@@ -13,8 +14,10 @@ void PPPOSClient::stop()
 int PPPOSClient::connect(IPAddress ip, uint16_t port)
 {
     int32_t timeout = PPPOS_CLIENT_DEF_CONN_TIMEOUT_MS;
+    ESP_LOGE(TAG, "-------------------------PPPOSClient connect 111");
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
+		ESP_LOGE(TAG, "socket: %d", errno);
         log_e("socket: %d", errno);
         return 0;
     }
