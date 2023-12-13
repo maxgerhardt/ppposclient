@@ -158,7 +158,7 @@ size_t PPPOSClient::write(const uint8_t *buf, size_t size) {
           retry = PPPOS_CLIENT_MAX_WRITE_RETRY;
         }
       } else if (res < 0) {
-        log_e("fail on fd %d, errno: %d, \"%s\"", fd(), errno, strerror(errno));
+        log_e("fail on fd %d, errno: %d, \"%s\"", socketFileDescriptor, errno, strerror(errno));
         if (errno != EAGAIN) {
           stop();
           res = 0;
